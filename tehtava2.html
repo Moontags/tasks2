@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Contains Number Checker (ES5)</title>
+<link rel="stylesheet" href="tehtava2.css">
+<style>
+  .explanation {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #f9f9f9;
+    border: 1px solid #eee;
+    border-radius: 5px;
+  }
+
+  .explanation pre {
+    background-color: #f4f4f4;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    overflow-x: auto;
+  }
+</style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>Contains Number Checker</h1>
+
+    <label for="numberToFind">Enter a number to search:</label>
+    <input type="text" id="numberToFind">
+    <button onclick="checkIfContains()">Check if contains</button>
+
+    <div id="result"></div>
+  </div>
+
+  <script>
+
+    var containsNumber = function(numbers, aNumber) {
+      aNumber = parseInt(aNumber, 10);
+      if (isNaN(aNumber) || !Array.isArray(numbers)) {
+        return false;
+      }
+      for (var i = 0; i < numbers.length; i++) {
+        if (numbers[i] === aNumber) {
+          return true;
+        }
+      }
+      return false;
+    };
+
+    function displayResult(number, contains) {
+      var resultDiv = document.getElementById('result');
+      var message = "Array ";
+      if (!contains) {
+        message += "doesn't ";
+      }
+      message += "contain the number " + number;
+      resultDiv.textContent = message;
+    }
+
+    function checkIfContains() {
+      var numberToFindInput = document.getElementById('numberToFind');
+      var numberToFindValue = numberToFindInput.value;
+      var numbersArray = [6, 4, 2, 5, 9, 7, 5, 7, 2];
+      var contains = containsNumber(numbersArray, numberToFindValue);
+      displayResult(numberToFindValue, contains);
+    }
+  </script>
+
+  <div class="explanation">
+    <h2>Code</h2>
+    <pre><code>
+var containsNumber = function(numbers, aNumber) {
+  aNumber = parseInt(aNumber, 10);
+  if (isNaN(aNumber) || !Array.isArray(numbers)) {
+    return false;
+  }
+  for (var i = 0; i &lt; numbers.length; i++) {
+    if (numbers[i] === aNumber) {
+      return true;
+    }
+  }
+  return false;
+};
+
+var numbersToCheck = [6, 4, 2, 5, 9, 7, 5, 7, 2];
+console.log("Does numbersToCheck contain 5? " + containsNumber(numbersToCheck, 5));   // Output: true
+console.log("Does numbersToCheck contain 10? " + containsNumber(numbersToCheck, 10));  // Output: false
+console.log("Does numbersToCheck contain NaN? " + containsNumber(numbersToCheck, NaN)); // Output: false
+
+    </code></pre>
+
+    <a href="index.html" class="back-link">Back to the task list</a>
+  </div>
+
+</body>
+</html>

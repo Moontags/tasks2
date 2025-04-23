@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Leap Year Checker (ES5)</title>
+<link rel="stylesheet" href="tehtava1.css">
+<style>
+  .explanation {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #f9f9f9;
+    border: 1px solid #eee;
+    border-radius: 5px;
+  }
+
+  .explanation pre {
+    background-color: #f4f4f4;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    overflow-x: auto;
+  }
+</style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>Leap Year Checker</h1>
+
+    <label for="yearInput">Enter a year:</label>
+    <input type="text" id="yearInput">
+    <button onclick="checkYear()">Check year</button>
+
+    <div id="result"></div>
+  </div>
+
+  <script>
+
+    function isLeapYear(year) {
+
+      year = parseInt(year, 10);
+
+      if (isNaN(year)) {
+        return false;
+      }
+
+      if (year % 4 === 0) {
+        if (year % 100 !== 0 || year % 400 === 0) {
+          return true;
+        }
+      }
+      return false;
+    }
+
+    function displayResult(year, isLeap) {
+      var resultDiv = document.getElementById('result');
+      var message = "Year " + year + " is ";
+      if (!isLeap) {
+        message += "not ";
+      }
+      message += "a leap year";
+      resultDiv.textContent = message;
+    }
+
+    function checkYear() {
+      var yearInput = document.getElementById('yearInput');
+      var yearValue = yearInput.value;
+      var isLeap = isLeapYear(yearValue);
+      displayResult(yearValue, isLeap);
+    }
+  </script>
+
+  <div class="explanation">
+    <h2>Code</h2>
+    <pre><code>
+function isLeapYear(year) {
+  year = parseInt(year, 10);
+
+  if (isNaN(year)) {
+    return false;
+  }
+
+  if (year % 4 === 0) {
+    if (year % 100 !== 0 || year % 400 === 0) {
+      return true;
+    }
+  }
+  return false;
+}
+
+console.log("Is 2020 a leap year? " + isLeapYear(2020)); // Output: true
+console.log("Is 2021 a leap year? " + isLeapYear(2021)); // Output: false
+console.log("Is 1900 a leap year? " + isLeapYear(1900)); // Output: false
+console.log("Is 2000 a leap year? " + isLeapYear(2000)); // Output: true
+
+    </code></pre>
+
+    <a href="index.html" class="back-link">Back to the task list</a>
+  </div>
+
+</body>
+</html>

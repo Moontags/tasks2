@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Convert to Minutes Format (ES6 Arrow Function)</title>
+<link rel="stylesheet" href="tehtava3.css">
+<style>
+  .explanation {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #f9f9f9;
+    border: 1px solid #eee;
+    border-radius: 5px;
+  }
+
+  .explanation pre {
+    background-color: #f4f4f4;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    overflow-x: auto;
+  }
+</style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>Convert to Minutes Format</h1>
+
+    <label for="hoursInput">Enter hours (x.xx, xx.xx, x,xx or xx,xx):</label>
+    <input type="text" id="hoursInput">
+    <button onclick="convertToMinutes()">Convert to Minutes</button>
+
+    <div id="result"></div>
+  </div>
+
+  <script>
+    const convertToMinutesFormat = (hoursInHundredths) => {
+      const hoursString = String(hoursInHundredths).replace(',', '.');
+      const totalHundredths = parseFloat(hoursString);
+
+      if (isNaN(totalHundredths)) {
+        return "Invalid input";
+      }
+
+      const totalMinutes = Math.round(totalHundredths * 60);
+      const hours = Math.floor(totalMinutes / 60);
+      const minutes = totalMinutes % 60;
+
+      const formattedHours = hours < 10 ? `0${hours}` : `${hours}`;
+      const formattedMinutes = minutes < 10 ? `0${minutes}` : `${minutes}`;
+
+      return `${hours}:${formattedMinutes}`;
+    };
+
+    function displayConversionResult(inputHours, formattedTime) {
+      var resultDiv = document.getElementById('result');
+      var message = `"${inputHours} hours" is in hours and minutes equal to ${formattedTime}`;
+      resultDiv.textContent = message;
+    }
+
+    function convertToMinutes() {
+      var hoursInputValue = document.getElementById('hoursInput').value;
+      var formattedTime = convertToMinutesFormat(hoursInputValue);
+      displayConversionResult(hoursInputValue, formattedTime);
+    }
+  </script>
+
+  <div class="explanation">
+    <h2>Code</h2>
+    <pre><code>
+const convertToMinutesFormat = (hoursInHundredths) => {
+  const hoursString = String(hoursInHundredths).replace(',', '.');
+  const totalHundredths = parseFloat(hoursString);
+
+  if (isNaN(totalHundredths)) {
+    return "Invalid input";
+  }
+
+  const totalMinutes = Math.round(totalHundredths * 60);
+  const hours = Math.floor(totalMinutes / 60);
+  const minutes = totalMinutes % 60;
+
+  const formattedHours = hours &lt; 10 ? `0${hours}` : `${hours}`;
+  const formattedMinutes = minutes &lt; 10 ? `0${minutes}` : `${minutes}`;
+
+  return `${hours}:${formattedMinutes}`;
+};
+
+console.log("2.5 hours to minutes format: " + convertToMinutesFormat(2.5));     // Output: 02:30
+console.log("10.75 hours to minutes format: " + convertToMinutesFormat("10.75")); // Output: 10:45
+console.log("0.25 hours to minutes format: " + convertToMinutesFormat("0,25"));   // Output: 00:15 (comma is replaced with a dot)
+console.log("5 hours to minutes format: " + convertToMinutesFormat(5));         // Output: 05:00
+console.log("Invalid input: " + convertToMinutesFormat("hello"));               // Output: Invalid input
+    </code></pre>
+
+    <a href="index.html" class="back-link">Back to the task list</a>
+  </div>
+
+</body>
+</html>

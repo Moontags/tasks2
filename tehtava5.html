@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Object Literals in JavaScript</title>
+    <link rel="stylesheet" href="tehtava5.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Object Literals in JavaScript</h1>
+
+        <section>
+            <h2>A. Book object</h2>
+            <pre>
+              <code>
+                const book = {
+                  isbn: "978-1234567890",
+                  name: "The Great Adventure",
+                  authors: ["John Doe", "Jane Smith"],
+                  publicationDate: "2023-03-15"
+                };
+                console.log(book);
+              </code>
+            </pre>
+           
+        </section>
+
+        <section>
+            <h2>B. Methods to the book object</h2>
+            <pre>
+              <code>
+                book.getAuthors = function() {
+                  return this.authors;
+                };
+                book.setAuthors = function(newAuthors) {
+                  this.authors = newAuthors;
+                };
+                book.getIsbn = function() {
+                  return this.isbn;
+                };
+                book.setIsbn = function(newIsbn) {
+                  this.isbn = newIsbn;
+                };
+                console.log("Book with methods:", book);
+              </code>
+            </pre>
+        
+        </section>
+
+        <section>
+            <h2>C. Comparing two book objects for equality (based on ISBN)</h2>
+            <pre>
+              <code>
+                const book1 = { isbn: "978-1111111111", name: "Book One" };
+                const book2 = { isbn: "978-1111111111", name: "Another Book" };
+                const book3 = { isbn: "978-2222222222", name: "Book Two" };
+
+                function areSameBook(bookA, bookB) {
+                  return bookA.isbn === bookB.isbn;
+                }
+
+                console.log("book1 and book2 are the same book:", areSameBook(book1, book2));
+                console.log("book1 and book3 are the same book:", areSameBook(book1, book3));
+              </code>
+            </pre>
+         
+        </section>
+
+        <section>
+            <h2>D. Comparing two book objects with the same values for identity</h2>
+            <pre>
+              <code>
+                const book4 = { isbn: "978-3333333333", name: "Identical Book" };
+                const book5 = { isbn: "978-3333333333", name: "Identical Book" };
+
+                console.log("book4 === book5:", book4 === book5);
+              </code>
+            </pre>
+          
+        </section>
+
+        <a href="index.html" class="back-link">Back to the task list</a>
+    </div>
+
+
+</body>
+</html>

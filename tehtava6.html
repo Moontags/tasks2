@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Convert Ounces to Grams (ES6)</title>
+    <link rel="stylesheet" href="tehtava6.css">
+
+</head>
+<body>
+
+  <div class="container">
+    <h1>Convert Ounces to Grams</h1>
+
+    <label for="ouncesInput">Enter weight in ounces:</label>
+    <input type="number" id="ouncesInput" placeholder="Enter ounces" oninput="convertToGrams()">
+
+    <div id="gramsResult">Grams: </div>
+  </div>
+
+  <script>
+    const ounceToGramRate = 28.3495;
+    const gramsResultDiv = document.getElementById("gramsResult");
+    const ouncesInput = document.getElementById("ouncesInput");
+
+    function convertToGrams() {
+      const ounces = parseFloat(ouncesInput.value);
+      if (!isNaN(ounces)) {
+        const grams = (ounces * ounceToGramRate).toFixed(2);
+        gramsResultDiv.textContent = `Grams: ${grams}`;
+      } else {
+        gramsResultDiv.textContent = "Grams: ";
+      }
+    }
+  </script>
+
+  <div class="explanation">
+    <h2>Code</h2>
+    <pre><code>
+const ounceToGramRate = 28.3495;
+const gramsResultDiv = document.getElementById("gramsResult");
+const ouncesInput = document.getElementById("ouncesInput");
+
+function convertToGrams() {
+  const ounces = parseFloat(ouncesInput.value);
+  if (!isNaN(ounces)) {
+    const grams = (ounces * ounceToGramRate).toFixed(2);
+    gramsResultDiv.textContent = `Grams: ${grams}`;
+  } else {
+    gramsResultDiv.textContent = "Grams: ";
+  }
+}
+    </code></pre>
+
+    
+
+    <a href="index.html" class="back-link">Back to the task list</a>
+  </div>
+
+</body>
+</html>

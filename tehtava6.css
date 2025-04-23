@@ -1,0 +1,163 @@
+body {
+  font-family: sans-serif;
+  margin: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: url('images/bg1.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: 0.9;
+  min-height: 100vh;
+}
+
+.container {
+  max-width: 600px;
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+  margin-bottom: 30px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+h1 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 30px;
+  width: 100%;
+}
+
+.measurements-block {
+  flex: 1 1 45%;
+  margin-bottom: 20px;
+  min-width: 300px;
+}
+
+.measurements-block h2 {
+  color: #555;
+  margin-top: 0;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 5px;
+  text-align: center;
+}
+
+.measurements-block pre {
+  background-color: #eee;
+  padding: 15px;
+  border-radius: 4px;
+  overflow-x: auto;
+  margin-bottom: 0;
+  white-space: pre-wrap;
+  font-size: 0.9em;
+}
+
+button {
+  padding: 10px 20px;
+  background-color: #28a745;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+  margin-bottom: 20px;
+  width: 200px;
+  align-self: center;
+}
+
+button:hover {
+  background-color: #1e7e34;
+}
+
+.explanation {
+  max-width: 800px;
+  margin-top: 20px; 
+  padding: 15px; 
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  text-align: left;
+  font-size: 0.9em;
+  border: 1px solid #eee; 
+  width: 100%;
+}
+
+.explanation h2 {
+  color: #333;
+  margin-bottom: 15px;
+}
+
+.explanation ul {
+  padding-left: 20px;
+}
+
+.explanation li {
+  margin-bottom: 8px;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.back-link {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 10px 15px;
+  text-decoration: none;
+  color: #555;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.back-link:hover {
+  background-color: #eee;
+}
+
+label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+  color: #333; 
+}
+
+input[type="number"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-size: 1em; 
+}
+
+#gramsResult {
+  margin-top: 15px;
+  padding: 10px;
+  background-color: #e9ecef;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  font-weight: bold;
+  color: #333; 
+  font-size: 1em; 
+}
+
+.explanation pre {
+  background-color: #f4f4f4;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  overflow-x: auto;
+  white-space: pre-wrap;
+  font-family: monospace; 
+  font-size: 0.9em; 
+}
